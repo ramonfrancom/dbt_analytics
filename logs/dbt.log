@@ -1,0 +1,742 @@
+[0m05:37:53.172877 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70b25c3dcbf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70b25c3dc530>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70b25c974440>]}
+
+
+============================== 05:37:53.177429 | 03ebe47d-1ed9-4f1d-b3be-e871c877e0dd ==============================
+[0m05:37:53.177429 [info ] [MainThread]: Running with dbt=1.10.3
+[0m05:37:53.178153 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/root/.dbt', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'invocation_command': 'dbt init dbt', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m05:38:11.374786 [error] [MainThread]: Encountered an error:
+
+[0m05:38:11.377658 [error] [MainThread]: Traceback (most recent call last):
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/cli/requires.py", line 161, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/cli/requires.py", line 111, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/cli/main.py", line 483, in init
+    results = task.run()
+              ^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/task/init.py", line 324, in run
+    project_name = self.get_valid_project_name()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/task/init.py", line 278, in get_valid_project_name
+    name = click.prompt("Enter a name for your project (letters, digits, underscore)")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/click/termui.py", line 168, in prompt
+    value = prompt_func(prompt)
+            ^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/click/termui.py", line 151, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m05:38:11.378971 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": false, "command_wall_clock_time": 18.271639, "process_in_blocks": "0", "process_kernel_time": 0.307299, "process_mem_max_rss": "101884", "process_out_blocks": "16", "process_user_time": 1.620308}
+[0m05:38:11.379553 [debug] [MainThread]: Command `dbt init` failed at 05:38:11.379453 after 18.27 seconds
+[0m05:38:11.380002 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70b25c39b590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70b25bbc84d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70b25ba7f830>]}
+[0m05:38:11.380617 [debug] [MainThread]: Flushing usage events
+[0m05:38:11.764288 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m05:38:44.059697 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e4167ce4530>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e41687876e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e4167e78e30>]}
+
+
+============================== 05:38:44.064933 | ab1ea7ec-f7d1-44ef-aa67-5114055e4a0f ==============================
+[0m05:38:44.064933 [info ] [MainThread]: Running with dbt=1.10.3
+[0m05:38:44.066030 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/root/.dbt', 'version_check': 'True', 'warn_error': 'None', 'log_path': 'logs', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'invocation_command': 'dbt init dbt_models', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m05:38:44.080096 [debug] [MainThread]: Starter project path: /root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/include/starter_project
+[0m05:38:44.091247 [info ] [MainThread]: 
+Your new dbt project "dbt_models" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m05:38:44.091886 [info ] [MainThread]: Setting up your profile.
+[0m05:40:05.316251 [info ] [MainThread]: Profile dbt_models written to /root/.dbt/profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m05:40:05.321399 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 81.32898, "process_in_blocks": "416", "process_kernel_time": 0.527231, "process_mem_max_rss": "167120", "process_out_blocks": "96", "process_user_time": 4.569342}
+[0m05:40:05.322570 [debug] [MainThread]: Command `dbt init` succeeded at 05:40:05.322379 after 81.33 seconds
+[0m05:40:05.323115 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e4167ce4530>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e413b1f3200>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e4139b2ca10>]}
+[0m05:40:05.323629 [debug] [MainThread]: Flushing usage events
+[0m05:40:05.827429 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m18:05:20.885573 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7afb65a66db0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7afb65c1c770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7afb652bac30>]}
+
+
+============================== 18:05:20.891808 | 53a4dc40-0103-4c55-8b48-ed1e24b1d039 ==============================
+[0m18:05:20.891808 [info ] [MainThread]: Running with dbt=1.10.3
+[0m18:05:20.892536 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/root/.dbt', 'fail_fast': 'False', 'warn_error': 'None', 'log_path': 'logs', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'invocation_command': 'dbt debug', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m18:05:20.925511 [info ] [MainThread]: dbt version: 1.10.3
+[0m18:05:20.926229 [info ] [MainThread]: python version: 3.12.4
+[0m18:05:20.926761 [info ] [MainThread]: python path: /root/Development/Airflow/.venv/bin/python3
+[0m18:05:20.927143 [info ] [MainThread]: os info: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35
+[0m18:05:22.439349 [info ] [MainThread]: Using profiles dir at /root/.dbt
+[0m18:05:22.440079 [info ] [MainThread]: Using profiles.yml file at /root/.dbt/profiles.yml
+[0m18:05:22.440581 [info ] [MainThread]: Using dbt_project.yml file at /root/Development/Airflow/dbt_project.yml
+[0m18:05:22.442082 [info ] [MainThread]: adapter type: snowflake
+[0m18:05:22.442620 [info ] [MainThread]: adapter version: 1.9.4
+[0m18:05:22.443018 [info ] [MainThread]: Configuration:
+[0m18:05:22.443489 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m18:05:22.443863 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m18:05:22.444297 [info ] [MainThread]: Required dependencies:
+[0m18:05:22.444703 [debug] [MainThread]: Executing "git --help"
+[0m18:05:22.448861 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m18:05:22.449559 [debug] [MainThread]: STDERR: "b''"
+[0m18:05:22.450154 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m18:05:22.451018 [info ] [MainThread]: Connection:
+[0m18:05:22.452228 [info ] [MainThread]:   account: https://SHYETAS-ADC55238.snowflakecomputing.com
+[0m18:05:22.453672 [info ] [MainThread]:   user: dbt_user
+[0m18:05:22.454767 [info ] [MainThread]:   database: PPNCETL
+[0m18:05:22.455985 [info ] [MainThread]:   warehouse: compute_wh
+[0m18:05:22.456767 [info ] [MainThread]:   role: dbt_role
+[0m18:05:22.457311 [info ] [MainThread]:   schema: public
+[0m18:05:22.457756 [info ] [MainThread]:   authenticator: None
+[0m18:05:22.458594 [info ] [MainThread]:   oauth_client_id: None
+[0m18:05:22.459871 [info ] [MainThread]:   query_tag: None
+[0m18:05:22.461172 [info ] [MainThread]:   client_session_keep_alive: False
+[0m18:05:22.462153 [info ] [MainThread]:   host: None
+[0m18:05:22.463121 [info ] [MainThread]:   port: None
+[0m18:05:22.463994 [info ] [MainThread]:   proxy_host: None
+[0m18:05:22.464929 [info ] [MainThread]:   proxy_port: None
+[0m18:05:22.465978 [info ] [MainThread]:   protocol: None
+[0m18:05:22.467121 [info ] [MainThread]:   connect_retries: 1
+[0m18:05:22.468422 [info ] [MainThread]:   connect_timeout: None
+[0m18:05:22.469685 [info ] [MainThread]:   retry_on_database_errors: False
+[0m18:05:22.470650 [info ] [MainThread]:   retry_all: False
+[0m18:05:22.471649 [info ] [MainThread]:   insecure_mode: False
+[0m18:05:22.472293 [info ] [MainThread]:   reuse_connections: True
+[0m18:05:22.473085 [info ] [MainThread]: Registered adapter: snowflake=1.9.4
+[0m18:05:22.612617 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m18:05:22.659446 [debug] [MainThread]: Using snowflake connection "debug"
+[0m18:05:22.659964 [debug] [MainThread]: On debug: select 1 as id
+[0m18:05:22.660362 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m18:06:17.526787 [error] [MainThread]: Encountered an error:
+
+[0m18:06:17.545159 [error] [MainThread]: Traceback (most recent call last):
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/util/connection.py", line 79, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 964, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connectionpool.py", line 715, in urlopen
+    httplib_response = self._make_request(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connectionpool.py", line 404, in _make_request
+    self._validate_conn(conn)
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connectionpool.py", line 1058, in _validate_conn
+    conn.connect()
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connection.py", line 363, in connect
+    self.sock = conn = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+snowflake.connector.vendored.urllib3.exceptions.NewConnectionError: <snowflake.connector.vendored.urllib3.connection.HTTPSConnection object at 0x7afb35016330>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/requests/adapters.py", line 485, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connectionpool.py", line 827, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connectionpool.py", line 799, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+snowflake.connector.vendored.urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='https', port=443): Max retries exceeded with url: //SHYETAS-ADC55238.snowflakecomputing.com.snowflakecomputing.com:443/session/v1/login-request?request_id=9ddc4880-2dc2-41e0-8a1d-37ab402bc265&databaseName=PPNCETL&schemaName=public&warehouse=compute_wh&roleName=dbt_role (Caused by NewConnectionError('<snowflake.connector.vendored.urllib3.connection.HTTPSConnection object at 0x7afb35016330>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/network.py", line 1149, in _request_exec
+    raw_ret = session.request(
+              ^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/requests/adapters.py", line 518, in send
+    raise ConnectionError(e, request=request)
+snowflake.connector.vendored.requests.exceptions.ConnectionError: HTTPSConnectionPool(host='https', port=443): Max retries exceeded with url: //SHYETAS-ADC55238.snowflakecomputing.com.snowflakecomputing.com:443/session/v1/login-request?request_id=9ddc4880-2dc2-41e0-8a1d-37ab402bc265&databaseName=PPNCETL&schemaName=public&warehouse=compute_wh&roleName=dbt_role (Caused by NewConnectionError('<snowflake.connector.vendored.urllib3.connection.HTTPSConnection object at 0x7afb35016330>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1669, in _authenticate
+    auth.authenticate(
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/auth/_auth.py", line 226, in authenticate
+    ret = self._rest._post_request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/network.py", line 805, in _post_request
+    ret = self.fetch(
+          ^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/network.py", line 924, in fetch
+    ret = self._request_exec_wrapper(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/network.py", line 1054, in _request_exec_wrapper
+    raise e
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/network.py", line 975, in _request_exec_wrapper
+    return_object = self._request_exec(
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/network.py", line 1247, in _request_exec
+    raise OperationalError(
+snowflake.connector.errors.OperationalError: 251011: ConnectionTimeout occurred during login. Will be handled by authenticator
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/util/connection.py", line 79, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 964, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/cli/requires.py", line 161, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/cli/requires.py", line 111, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/cli/main.py", line 420, in debug
+    results = task.run()
+              ^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/task/debug.py", line 144, in run
+    connection_status = self.test_connection()
+                        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/task/debug.py", line 465, in test_connection
+    connection_result = self.attempt_connection(self.profile)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/task/debug.py", line 443, in attempt_connection
+    adapter.debug_query()
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/snowflake/impl.py", line 459, in debug_query
+    self.execute("select 1 as id")
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt_common/record.py", line 507, in record_replay_wrapper
+    return func_to_record(*call_args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/base/impl.py", line 437, in execute
+    return self.connections.execute(sql=sql, auto_begin=auto_begin, fetch=fetch, limit=limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 514, in execute
+    _, cursor = self.add_query(sql, auto_begin)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 551, in add_query
+    connection, cursor = self._add_standard_queries(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 607, in _add_standard_queries
+    connection, cursor = self.add_standard_query(query, **kwargs)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 525, in add_standard_query
+    return super().add_query(self._add_query_comment(sql), **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/sql/connections.py", line 147, in add_query
+    cursor = connection.handle.cursor()
+             ^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/contracts/connection.py", line 96, in handle
+    self._handle.resolve(self)
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/contracts/connection.py", line 120, in resolve
+    return self.opener(connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 420, in open
+    return cls.retry_connection(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/base/connections.py", line 237, in retry_connection
+    connection.handle = connect()
+                        ^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 380, in connect
+    handle = snowflake.connector.connect(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/__init__.py", line 54, in Connect
+    return SnowflakeConnection(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/connection.py", line 554, in __init__
+    self.connect(**kwargs)
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/connection.py", line 911, in connect
+    self.__open_connection()
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1312, in __open_connection
+    self.authenticate_with_retry(self.auth_class)
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1637, in authenticate_with_retry
+    self._authenticate(auth_instance)
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1697, in _authenticate
+    auth.authenticate(
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/auth/_auth.py", line 226, in authenticate
+    ret = self._rest._post_request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/network.py", line 805, in _post_request
+    ret = self.fetch(
+          ^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/network.py", line 924, in fetch
+    ret = self._request_exec_wrapper(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/network.py", line 975, in _request_exec_wrapper
+    return_object = self._request_exec(
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/network.py", line 1149, in _request_exec
+    raw_ret = session.request(
+              ^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/requests/adapters.py", line 485, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connectionpool.py", line 715, in urlopen
+    httplib_response = self._make_request(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connectionpool.py", line 404, in _make_request
+    self._validate_conn(conn)
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connectionpool.py", line 1058, in _validate_conn
+    conn.connect()
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connection.py", line 363, in connect
+    self.sock = conn = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connection.py", line 187, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+KeyboardInterrupt
+
+[0m18:06:17.548045 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 55.852333, "process_in_blocks": "151616", "process_kernel_time": 0.886523, "process_mem_max_rss": "174436", "process_out_blocks": "160", "process_user_time": 5.801944}
+[0m18:06:17.548699 [debug] [MainThread]: Command `dbt debug` failed at 18:06:17.548569 after 55.85 seconds
+[0m18:06:17.549196 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m18:06:17.549583 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7afb67566f00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7afb3541c1d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7afb35104740>]}
+[0m18:06:17.550031 [debug] [MainThread]: Flushing usage events
+[0m18:06:18.082634 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m18:06:21.808398 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x750ad12985c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x750ad2f708f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x750ad0bdef60>]}
+
+
+============================== 18:06:21.811798 | aadabbf6-c940-4c3a-b544-ed6f3f10bdc9 ==============================
+[0m18:06:21.811798 [info ] [MainThread]: Running with dbt=1.10.3
+[0m18:06:21.812476 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/root/.dbt', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'invocation_command': 'dbt debug', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m18:06:21.822065 [info ] [MainThread]: dbt version: 1.10.3
+[0m18:06:21.822634 [info ] [MainThread]: python version: 3.12.4
+[0m18:06:21.823010 [info ] [MainThread]: python path: /root/Development/Airflow/.venv/bin/python3
+[0m18:06:21.823410 [info ] [MainThread]: os info: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35
+[0m18:06:22.551279 [info ] [MainThread]: Using profiles dir at /root/.dbt
+[0m18:06:22.552379 [info ] [MainThread]: Using profiles.yml file at /root/.dbt/profiles.yml
+[0m18:06:22.553127 [info ] [MainThread]: Using dbt_project.yml file at /root/Development/Airflow/dbt_project.yml
+[0m18:06:22.553953 [info ] [MainThread]: adapter type: snowflake
+[0m18:06:22.554600 [info ] [MainThread]: adapter version: 1.9.4
+[0m18:06:22.555176 [info ] [MainThread]: Configuration:
+[0m18:06:22.555752 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m18:06:22.556298 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m18:06:22.556806 [info ] [MainThread]: Required dependencies:
+[0m18:06:22.557248 [debug] [MainThread]: Executing "git --help"
+[0m18:06:22.560113 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m18:06:22.560842 [debug] [MainThread]: STDERR: "b''"
+[0m18:06:22.561275 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m18:06:22.561701 [info ] [MainThread]: Connection:
+[0m18:06:22.562120 [info ] [MainThread]:   account: https://SHYETAS-ADC55238.snowflakecomputing.com
+[0m18:06:22.562670 [info ] [MainThread]:   user: dbt_user
+[0m18:06:22.563129 [info ] [MainThread]:   database: PPNCETL
+[0m18:06:22.563929 [info ] [MainThread]:   warehouse: compute_wh
+[0m18:06:22.564553 [info ] [MainThread]:   role: dbt_role
+[0m18:06:22.565216 [info ] [MainThread]:   schema: public
+[0m18:06:22.565751 [info ] [MainThread]:   authenticator: None
+[0m18:06:22.566218 [info ] [MainThread]:   oauth_client_id: None
+[0m18:06:22.566644 [info ] [MainThread]:   query_tag: None
+[0m18:06:22.567091 [info ] [MainThread]:   client_session_keep_alive: False
+[0m18:06:22.567560 [info ] [MainThread]:   host: None
+[0m18:06:22.568157 [info ] [MainThread]:   port: None
+[0m18:06:22.568759 [info ] [MainThread]:   proxy_host: None
+[0m18:06:22.569423 [info ] [MainThread]:   proxy_port: None
+[0m18:06:22.570111 [info ] [MainThread]:   protocol: None
+[0m18:06:22.570776 [info ] [MainThread]:   connect_retries: 1
+[0m18:06:22.571422 [info ] [MainThread]:   connect_timeout: None
+[0m18:06:22.572032 [info ] [MainThread]:   retry_on_database_errors: False
+[0m18:06:22.572612 [info ] [MainThread]:   retry_all: False
+[0m18:06:22.573259 [info ] [MainThread]:   insecure_mode: False
+[0m18:06:22.573886 [info ] [MainThread]:   reuse_connections: True
+[0m18:06:22.574600 [info ] [MainThread]: Registered adapter: snowflake=1.9.4
+[0m18:06:22.714923 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m18:06:22.747746 [debug] [MainThread]: Using snowflake connection "debug"
+[0m18:06:22.748445 [debug] [MainThread]: On debug: select 1 as id
+[0m18:06:22.748943 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m18:07:26.398532 [error] [MainThread]: Encountered an error:
+
+[0m18:07:26.426977 [error] [MainThread]: Traceback (most recent call last):
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/util/connection.py", line 79, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 964, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connectionpool.py", line 715, in urlopen
+    httplib_response = self._make_request(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connectionpool.py", line 404, in _make_request
+    self._validate_conn(conn)
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connectionpool.py", line 1058, in _validate_conn
+    conn.connect()
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connection.py", line 363, in connect
+    self.sock = conn = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+snowflake.connector.vendored.urllib3.exceptions.NewConnectionError: <snowflake.connector.vendored.urllib3.connection.HTTPSConnection object at 0x750aa2561c70>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/requests/adapters.py", line 485, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connectionpool.py", line 827, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connectionpool.py", line 799, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+snowflake.connector.vendored.urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='https', port=443): Max retries exceeded with url: //SHYETAS-ADC55238.snowflakecomputing.com.snowflakecomputing.com:443/session/v1/login-request?request_id=5675c40b-bfb0-45de-8cce-091a4b990048&databaseName=PPNCETL&schemaName=public&warehouse=compute_wh&roleName=dbt_role (Caused by NewConnectionError('<snowflake.connector.vendored.urllib3.connection.HTTPSConnection object at 0x750aa2561c70>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/network.py", line 1149, in _request_exec
+    raw_ret = session.request(
+              ^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/requests/adapters.py", line 518, in send
+    raise ConnectionError(e, request=request)
+snowflake.connector.vendored.requests.exceptions.ConnectionError: HTTPSConnectionPool(host='https', port=443): Max retries exceeded with url: //SHYETAS-ADC55238.snowflakecomputing.com.snowflakecomputing.com:443/session/v1/login-request?request_id=5675c40b-bfb0-45de-8cce-091a4b990048&databaseName=PPNCETL&schemaName=public&warehouse=compute_wh&roleName=dbt_role (Caused by NewConnectionError('<snowflake.connector.vendored.urllib3.connection.HTTPSConnection object at 0x750aa2561c70>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1669, in _authenticate
+    auth.authenticate(
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/auth/_auth.py", line 226, in authenticate
+    ret = self._rest._post_request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/network.py", line 805, in _post_request
+    ret = self.fetch(
+          ^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/network.py", line 924, in fetch
+    ret = self._request_exec_wrapper(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/network.py", line 1054, in _request_exec_wrapper
+    raise e
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/network.py", line 975, in _request_exec_wrapper
+    return_object = self._request_exec(
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/network.py", line 1247, in _request_exec
+    raise OperationalError(
+snowflake.connector.errors.OperationalError: 251011: ConnectionTimeout occurred during login. Will be handled by authenticator
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/util/connection.py", line 79, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 964, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/cli/requires.py", line 161, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/cli/requires.py", line 111, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/cli/main.py", line 420, in debug
+    results = task.run()
+              ^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/task/debug.py", line 144, in run
+    connection_status = self.test_connection()
+                        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/task/debug.py", line 465, in test_connection
+    connection_result = self.attempt_connection(self.profile)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/task/debug.py", line 443, in attempt_connection
+    adapter.debug_query()
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/snowflake/impl.py", line 459, in debug_query
+    self.execute("select 1 as id")
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt_common/record.py", line 507, in record_replay_wrapper
+    return func_to_record(*call_args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/base/impl.py", line 437, in execute
+    return self.connections.execute(sql=sql, auto_begin=auto_begin, fetch=fetch, limit=limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 514, in execute
+    _, cursor = self.add_query(sql, auto_begin)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 551, in add_query
+    connection, cursor = self._add_standard_queries(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 607, in _add_standard_queries
+    connection, cursor = self.add_standard_query(query, **kwargs)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 525, in add_standard_query
+    return super().add_query(self._add_query_comment(sql), **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/sql/connections.py", line 147, in add_query
+    cursor = connection.handle.cursor()
+             ^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/contracts/connection.py", line 96, in handle
+    self._handle.resolve(self)
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/contracts/connection.py", line 120, in resolve
+    return self.opener(connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 420, in open
+    return cls.retry_connection(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/base/connections.py", line 237, in retry_connection
+    connection.handle = connect()
+                        ^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/dbt/adapters/snowflake/connections.py", line 380, in connect
+    handle = snowflake.connector.connect(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/__init__.py", line 54, in Connect
+    return SnowflakeConnection(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/connection.py", line 554, in __init__
+    self.connect(**kwargs)
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/connection.py", line 911, in connect
+    self.__open_connection()
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1312, in __open_connection
+    self.authenticate_with_retry(self.auth_class)
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1637, in authenticate_with_retry
+    self._authenticate(auth_instance)
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1697, in _authenticate
+    auth.authenticate(
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/auth/_auth.py", line 226, in authenticate
+    ret = self._rest._post_request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/network.py", line 805, in _post_request
+    ret = self.fetch(
+          ^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/network.py", line 924, in fetch
+    ret = self._request_exec_wrapper(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/network.py", line 975, in _request_exec_wrapper
+    return_object = self._request_exec(
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/network.py", line 1149, in _request_exec
+    raw_ret = session.request(
+              ^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/requests/adapters.py", line 485, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connectionpool.py", line 827, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connectionpool.py", line 715, in urlopen
+    httplib_response = self._make_request(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connectionpool.py", line 404, in _make_request
+    self._validate_conn(conn)
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connectionpool.py", line 1058, in _validate_conn
+    conn.connect()
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connection.py", line 363, in connect
+    self.sock = conn = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/root/Development/Airflow/.venv/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connection.py", line 187, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+KeyboardInterrupt
+
+[0m18:07:26.431637 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 62.966312, "process_in_blocks": "456", "process_kernel_time": 0.505262, "process_mem_max_rss": "174940", "process_out_blocks": "48", "process_user_time": 5.370451}
+[0m18:07:26.432586 [debug] [MainThread]: Command `dbt debug` failed at 18:07:26.432320 after 62.97 seconds
+[0m18:07:26.433236 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m18:07:26.433953 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x750ad12e9370>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x750aa29fd730>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x750aa2bed280>]}
+[0m18:07:26.434713 [debug] [MainThread]: Flushing usage events
+[0m18:07:26.934065 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m18:10:05.806219 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79679508f9b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x796794de8fe0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x796794f703e0>]}
+
+
+============================== 18:10:05.814164 | ed88dbf9-a931-4aef-ab77-c0171a4c228b ==============================
+[0m18:10:05.814164 [info ] [MainThread]: Running with dbt=1.10.3
+[0m18:10:05.814812 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'debug': 'False', 'log_path': 'logs', 'fail_fast': 'False', 'profiles_dir': '/root/.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt debug', 'send_anonymous_usage_stats': 'True'}
+[0m18:10:05.848367 [info ] [MainThread]: dbt version: 1.10.3
+[0m18:10:05.848948 [info ] [MainThread]: python version: 3.12.4
+[0m18:10:05.849384 [info ] [MainThread]: python path: /root/Development/Airflow/.venv/bin/python3
+[0m18:10:05.849789 [info ] [MainThread]: os info: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35
+[0m18:10:07.256842 [info ] [MainThread]: Using profiles dir at /root/.dbt
+[0m18:10:07.257630 [info ] [MainThread]: Using profiles.yml file at /root/.dbt/profiles.yml
+[0m18:10:07.258208 [info ] [MainThread]: Using dbt_project.yml file at /root/Development/Airflow/dbt_project.yml
+[0m18:10:07.259566 [info ] [MainThread]: adapter type: snowflake
+[0m18:10:07.260538 [info ] [MainThread]: adapter version: 1.9.4
+[0m18:10:07.261095 [info ] [MainThread]: Configuration:
+[0m18:10:07.261578 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m18:10:07.262183 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m18:10:07.262684 [info ] [MainThread]: Required dependencies:
+[0m18:10:07.263196 [debug] [MainThread]: Executing "git --help"
+[0m18:10:07.281596 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m18:10:07.282537 [debug] [MainThread]: STDERR: "b''"
+[0m18:10:07.283110 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m18:10:07.283607 [info ] [MainThread]: Connection:
+[0m18:10:07.284159 [info ] [MainThread]:   account: SHYETAS-ADC55238
+[0m18:10:07.284586 [info ] [MainThread]:   user: dbt_user
+[0m18:10:07.285328 [info ] [MainThread]:   database: PPNCETL
+[0m18:10:07.286015 [info ] [MainThread]:   warehouse: compute_wh
+[0m18:10:07.286558 [info ] [MainThread]:   role: dbt_role
+[0m18:10:07.287141 [info ] [MainThread]:   schema: public
+[0m18:10:07.287662 [info ] [MainThread]:   authenticator: None
+[0m18:10:07.288335 [info ] [MainThread]:   oauth_client_id: None
+[0m18:10:07.289146 [info ] [MainThread]:   query_tag: None
+[0m18:10:07.289752 [info ] [MainThread]:   client_session_keep_alive: False
+[0m18:10:07.290441 [info ] [MainThread]:   host: None
+[0m18:10:07.291070 [info ] [MainThread]:   port: None
+[0m18:10:07.291700 [info ] [MainThread]:   proxy_host: None
+[0m18:10:07.292633 [info ] [MainThread]:   proxy_port: None
+[0m18:10:07.293697 [info ] [MainThread]:   protocol: None
+[0m18:10:07.294485 [info ] [MainThread]:   connect_retries: 1
+[0m18:10:07.295157 [info ] [MainThread]:   connect_timeout: None
+[0m18:10:07.295869 [info ] [MainThread]:   retry_on_database_errors: False
+[0m18:10:07.296474 [info ] [MainThread]:   retry_all: False
+[0m18:10:07.297244 [info ] [MainThread]:   insecure_mode: False
+[0m18:10:07.297937 [info ] [MainThread]:   reuse_connections: True
+[0m18:10:07.299546 [info ] [MainThread]: Registered adapter: snowflake=1.9.4
+[0m18:10:07.471465 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m18:10:07.518181 [debug] [MainThread]: Using snowflake connection "debug"
+[0m18:10:07.518684 [debug] [MainThread]: On debug: select 1 as id
+[0m18:10:07.519041 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m18:10:08.993259 [debug] [MainThread]: Snowflake adapter: Error running SQL: select 1 as id
+[0m18:10:08.994215 [debug] [MainThread]: Snowflake adapter: Rolling back transaction.
+[0m18:10:08.995210 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m18:10:08.996328 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m18:10:08.997180 [info ] [MainThread]: Project loading failed for the following reason:
+ project path </root/Development/Airflow/dbt_project.yml> not found
+
+[0m18:10:08.998016 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  250001 (08001): Failed to connect to DB: SHYETAS-ADC55238.snowflakecomputing.com:443. Role 'DBT_ROLE' specified in the connect string is not granted to this user. Contact your local system administrator, or attempt to login with another role, e.g. PUBLIC.
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m18:10:08.999698 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 3.2576654, "process_in_blocks": "109760", "process_kernel_time": 0.894417, "process_mem_max_rss": "181028", "process_out_blocks": "2416", "process_user_time": 5.695812}
+[0m18:10:09.000333 [debug] [MainThread]: Command `dbt debug` failed at 18:10:09.000223 after 3.26 seconds
+[0m18:10:09.000882 [debug] [MainThread]: Connection 'debug' was left open.
+[0m18:10:09.001449 [debug] [MainThread]: On debug: No close available on handle
+[0m18:10:09.002049 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x796794b3f080>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x796766edd6a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79676686a270>]}
+[0m18:10:09.002862 [debug] [MainThread]: Flushing usage events
+[0m18:10:09.686468 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m18:12:05.348445 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7227bbed59d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7227bccb2960>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7227be9cca70>]}
+
+
+============================== 18:12:05.356015 | d5c07074-0db0-4b5a-b681-3a2c2cb377fd ==============================
+[0m18:12:05.356015 [info ] [MainThread]: Running with dbt=1.10.3
+[0m18:12:05.356901 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/root/.dbt', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'invocation_command': 'dbt debug', 'static_parser': 'True', 'log_format': 'default', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m18:12:05.388412 [info ] [MainThread]: dbt version: 1.10.3
+[0m18:12:05.388901 [info ] [MainThread]: python version: 3.12.4
+[0m18:12:05.389243 [info ] [MainThread]: python path: /root/Development/Airflow/.venv/bin/python3
+[0m18:12:05.389580 [info ] [MainThread]: os info: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35
+[0m18:12:06.928539 [info ] [MainThread]: Using profiles dir at /root/.dbt
+[0m18:12:06.929090 [info ] [MainThread]: Using profiles.yml file at /root/.dbt/profiles.yml
+[0m18:12:06.929467 [info ] [MainThread]: Using dbt_project.yml file at /root/Development/Airflow/dbt_project.yml
+[0m18:12:06.930852 [info ] [MainThread]: adapter type: snowflake
+[0m18:12:06.931637 [info ] [MainThread]: adapter version: 1.9.4
+[0m18:12:06.932044 [info ] [MainThread]: Configuration:
+[0m18:12:06.932491 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m18:12:06.932882 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m18:12:06.933335 [info ] [MainThread]: Required dependencies:
+[0m18:12:06.933774 [debug] [MainThread]: Executing "git --help"
+[0m18:12:06.951338 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m18:12:06.952355 [debug] [MainThread]: STDERR: "b''"
+[0m18:12:06.952749 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m18:12:06.953129 [info ] [MainThread]: Connection:
+[0m18:12:06.953507 [info ] [MainThread]:   account: SHYETAS-ADC55238
+[0m18:12:06.953862 [info ] [MainThread]:   user: dbt_user
+[0m18:12:06.954207 [info ] [MainThread]:   database: PPNCETL
+[0m18:12:06.954551 [info ] [MainThread]:   warehouse: compute_wh
+[0m18:12:06.954879 [info ] [MainThread]:   role: dbt_role
+[0m18:12:06.955216 [info ] [MainThread]:   schema: public
+[0m18:12:06.955547 [info ] [MainThread]:   authenticator: None
+[0m18:12:06.955966 [info ] [MainThread]:   oauth_client_id: None
+[0m18:12:06.956602 [info ] [MainThread]:   query_tag: None
+[0m18:12:06.957126 [info ] [MainThread]:   client_session_keep_alive: False
+[0m18:12:06.957727 [info ] [MainThread]:   host: None
+[0m18:12:06.958391 [info ] [MainThread]:   port: None
+[0m18:12:06.958956 [info ] [MainThread]:   proxy_host: None
+[0m18:12:06.959438 [info ] [MainThread]:   proxy_port: None
+[0m18:12:06.959963 [info ] [MainThread]:   protocol: None
+[0m18:12:06.960602 [info ] [MainThread]:   connect_retries: 1
+[0m18:12:06.961067 [info ] [MainThread]:   connect_timeout: None
+[0m18:12:06.961551 [info ] [MainThread]:   retry_on_database_errors: False
+[0m18:12:06.962017 [info ] [MainThread]:   retry_all: False
+[0m18:12:06.962376 [info ] [MainThread]:   insecure_mode: False
+[0m18:12:06.962727 [info ] [MainThread]:   reuse_connections: True
+[0m18:12:06.963233 [info ] [MainThread]: Registered adapter: snowflake=1.9.4
+[0m18:12:07.106402 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m18:12:07.151555 [debug] [MainThread]: Using snowflake connection "debug"
+[0m18:12:07.152174 [debug] [MainThread]: On debug: select 1 as id
+[0m18:12:07.152641 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m18:12:08.329368 [debug] [MainThread]: SQL status: SUCCESS 1 in 1.177 seconds
+[0m18:12:08.331020 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m18:12:08.331647 [info ] [MainThread]: [31m1 check failed:[0m
+[0m18:12:08.332145 [info ] [MainThread]: Project loading failed for the following reason:
+ project path </root/Development/Airflow/dbt_project.yml> not found
+
+[0m18:12:08.334807 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 3.0466871, "process_in_blocks": "179528", "process_kernel_time": 0.945117, "process_mem_max_rss": "178192", "process_out_blocks": "32", "process_user_time": 5.408171}
+[0m18:12:08.336164 [debug] [MainThread]: Command `dbt debug` failed at 18:12:08.335877 after 3.05 seconds
+[0m18:12:08.336646 [debug] [MainThread]: Connection 'debug' was left open.
+[0m18:12:08.337101 [debug] [MainThread]: On debug: Close
+[0m18:12:08.551717 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7227c056ef00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7227b8fe2000>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72278f95f4d0>]}
+[0m18:12:08.552439 [debug] [MainThread]: Flushing usage events
+[0m18:12:09.006322 [debug] [MainThread]: An error was encountered while trying to flush usage events
