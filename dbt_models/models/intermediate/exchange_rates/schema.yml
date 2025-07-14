@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: wk_exchange_prc_diff_day_by_day
+    

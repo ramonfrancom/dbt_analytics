@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: exchange_rates
+    database: PPNCSRC
+    schema: ADMIN
+    tables:
+      - name: cv_exchange_rates
