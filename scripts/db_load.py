@@ -1,28 +1,24 @@
-import snowflake.connector 
+from lib.snowflake_connector import get_snowflake_connection
 import os
+
+from pathlib import Path
 
 from dotenv import load_dotenv
 
 load_dotenv()
 
 def data_load():
+
+    data_path = Path('/root/Development/Airflow/data/')
+    if not any(data_path.glob("*.json")):
+        print("No files where found in data folder")
+        return
+
     snf_user = os.getenv("SNF_USER")
     snf_password = os.getenv("SNF_PASSWORD")
     snf_account = os.getenv("SNF_ACCOUNT")
-
-    print(snf_user)
-    print(snf_password)
-    print(snf_account)
     
-    conn = snowflake.connector.connect(
-        user=snf_user,
-        password=snf_password,
-        account=snf_account,
-        database="PPNCSRC",
-        schema="ADMIN"
-    )
-
-    cursor = conn.cursor()
+    cursor = get_snowflake_connection(snf_user,snf_password,snf_account)
 
     # cursor.execute("CREATE TABLE PPNCSRC.ADMIN.test (name VARCHAR(30),edad NUMBER(3,0));")
 

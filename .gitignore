@@ -1,0 +1,61 @@
+data/*.json
+data/backup/*.json
+
+logs/*
+!logs/script_logs
+logs/script_logs/*.log
+!logs/.gitkeep
+!logs/script_logs/.gitkeep
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.cache
+pytest_cache/
+nosetests.xml
+coverage.xml
+
+# MyPy, Pyright, etc.
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# VSCode / JetBrains
+.vscode/
+.idea/
+
+# macOS / Linux
+.DS_Store
+*.swp
+
+# Environment config
+.env
+*.env
