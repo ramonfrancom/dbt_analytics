@@ -12,6 +12,7 @@
     "DBT_DIR": "/root/Development/Airflow/dbt_models",
     "LOGS_DIR": "/root/Development/Airflow/logs",
     "LOGS_SCRIPTS_DIR": "/root/Development/Airflow/logs/Script_logs",
+    "LOGS_ERROR_DIR": "/root/Development/Airflow/logs/errors",
 
     "EMAIL_DEBUG_LIST": ["ramonfrancomalta+airflow_logger@gmail.com"]
 }

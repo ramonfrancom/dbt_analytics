@@ -4,9 +4,10 @@ import time
 import os
 from datetime import datetime
 from dotenv import load_dotenv
-from lib.snowflake_connector import get_snowflake_connection
+from lib.snowflake_connector import get_snowflake_connection_with_airflow_conn
 
-def get_requests_from_ct_snowflake():
+def get_requests_from_ct_snowflake(conn_id):
+    cursor = get_snowflake_connection_with_airflow_conn(conn_id)
     cursor.execute("""
                         SELECT 
                             ID,
@@ -22,7 +23,8 @@ def get_requests_from_ct_snowflake():
 
     return data
 
-def filter_dates_requested_with_date_already_processed_ct_snowflake(requested_dates):
+def filter_dates_requested_with_date_already_processed_ct_snowflake(conn_id, requested_dates):
+    cursor = get_snowflake_connection_with_airflow_conn(conn_id)
     print(requested_dates)
     cursor.execute(f"""
                         WITH date_list as (
@@ -131,7 +133,7 @@ if __name__ == "__main__":
     snf_password = os.getenv("SNF_PASSWORD")
     snf_account = os.getenv("SNF_ACCOUNT")
     
-    cursor = get_snowflake_connection(snf_user,snf_password,snf_account)
+    cursor = get_snowflake_connection_with_airflow_conn(snf_user,snf_password,snf_account)
 
     data = get_requests_from_ct_snowflake()
 

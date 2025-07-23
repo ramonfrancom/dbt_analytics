@@ -9,7 +9,18 @@ def get_snowflake_connection(snf_user,snf_password,snf_account):
         database="PPNCSRC",
         schema="ADMIN"
     )
-
     cursor = conn.cursor()
-
     return cursor
+
+def get_snowflake_connection_with_airflow_conn(conn_id):
+    
+    conn = snowflake.connector.connect(
+        user=conn_id.login,
+        password=conn_id.password,
+        account=conn_id.extra_dejson['account'],
+        database="PPNCSRC",
+        schema="ADMIN"
+    )
+    cursor = conn.cursor()
+    return cursor
+    

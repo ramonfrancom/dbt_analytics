@@ -3,9 +3,12 @@ data/backup/*.json
 
 logs/*
 !logs/script_logs
+!logs/errors
+
 logs/script_logs/*.log
 !logs/.gitkeep
 !logs/script_logs/.gitkeep
+!logs/errors/.gitkeep
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
