@@ -1,5 +1,6 @@
 from airflow.decorators import dag, task
-from airflow.models import Variable
+# from airflow.models import Variable
+from airflow.sdk import Variable
 from airflow.providers.standard.operators.python import PythonOperator
 from airflow.providers.standard.operators.bash import BashOperator 
 from airflow.utils.email import send_email
@@ -12,7 +13,7 @@ import time
 
 from lib.snowflake_connector import get_snowflake_connection_with_airflow_conn
 
-from scripts.exchange_rates.extract.pull_exchange_rates_from_api import get_requests_from_ct_snowflake, filter_dates_requested_with_date_already_processed_ct_snowflake
+# from scripts.exchange_rates.extract.pull_exchange_rates_from_api import get_requests_from_ct_snowflake, filter_dates_requested_with_date_already_processed_ct_snowflake
 
 load_dotenv()
 
@@ -26,7 +27,7 @@ def notify_email(context):
     f"""
     DAG: {context['dag'].dag_id}
     Task: {context['task_instance'].task_id}
-    Execution Time: {context['execution_date']}
+    Execution Time: {context['start_date']}
     Log URL: {context['task_instance'].log_url}
     """
     send_email(distribution_list,subject,body)
@@ -64,12 +65,12 @@ def etl_extract_exchange_rate_history():
         # data = [dict(zip(columns,[id, json.loads(dates)])) for id,dates in cursor.fetchall()]
         data = [{
                     'request_id': id,
-                    'dates': json.loads(dates)['ADDITIONAL_INFO']['dates'],
-                    'status_by_date': {'Success': [], 'Failed': []},
-                    'initial_status_by_date': {'Success': [], 'Failed': [], 'Untracked': []},
+                    'dates': json.loads(dates)['dates'],
+                    'status_by_date': {'Completed': [], 'Failed': []},
+                    'initial_status_by_date': {'Completed': [], 'Failed': [], 'Untracked': []},
                     'request_status': None
                 } for id,dates in cursor.fetchall()]
-
+        
         return data
     
     @task.short_circuit(task_id="check_request")
@@ -112,20 +113,25 @@ def etl_extract_exchange_rate_history():
     def explode_requests_by_date(enriched_requests):
 
         reformated_data = []
-
-        for key,dates in enriched_requests['initial_status_by_date'].items():
-            for date in dates:
-                reformated_data.append({
-                    'request_id': enriched_requests['request_id'],
-                    'date': date,
-                    'initial_status': key,
-                    'status' : None
-                })
+        
+        for enriched_request in enriched_requests:
+            for key,dates in enriched_request['initial_status_by_date'].items():
+                for date in dates:
+                    reformated_data.append({
+                        'request_id': enriched_request['request_id'],
+                        'date': date,
+                        'initial_status': key,
+                        'status' : None
+                    })
         
         return reformated_data
     
     @task(task_id="fetch_exchange_rate_from_api")
     def fetch_exchange_rate_from_api(requests_by_date):
+        if requests_by_date['initial_status'] == 'Completed':
+            requests_by_date['status'] = 'Completed'
+            return requests_by_date
+        
         api_key = Variable.get("API_KEY")
         data_dir = Variable.get('DATA_DIR')
         err_dir = Variable.get('LOGS_ERROR_DIR')
@@ -177,7 +183,7 @@ def etl_extract_exchange_rate_history():
 
         cursor = get_snowflake_connection_with_airflow_conn(snowflake_conn_id)
 
-        run_time = context['execution_date'].strftime('%Y-%m-%d %H:%M:%S')
+        run_time = context['logical_date'].strftime('%Y-%m-%d %H:%M:%S')
         if initial_status == 'Untracked': # Add new record
             cursor.execute(f"""
                 INSERT INTO PPCDMDB.ADMIN.CT_EXTRACTED_DATES
@@ -252,7 +258,7 @@ def etl_extract_exchange_rate_history():
             }
         '''
         
-        run_time = context['execution_date'].strftime('%Y-%m-%d %H:%M:%S')
+        run_time = context['logical_date'].strftime('%Y-%m-%d %H:%M:%S')
 
         request_id = aggregated_requests['request_id']
         status = aggregated_requests['request_status']
@@ -273,7 +279,7 @@ def etl_extract_exchange_rate_history():
     pending_requests = get_pending_requests(snowflake_conn_id)
     processed_request = check_requests(pending_requests)
     enriched_requests = filter_extracted_dates.partial(snowflake_conn_id=snowflake_conn_id).expand(pending_requests=processed_request)
-    requests_by_date = explode_requests_by_date.expand(enriched_requests=enriched_requests)
+    requests_by_date = explode_requests_by_date(enriched_requests=enriched_requests)
     api_results_per_date = fetch_exchange_rate_from_api.expand(requests_by_date=requests_by_date)
     update_ct_extracts = update_extracted_dates_table.partial(snowflake_conn_id=snowflake_conn_id).expand(api_results_per_date=api_results_per_date)
     aggregated_requests = aggregate_request_statuses(enriched_requests,api_results_per_date,update_ct_extracts)

@@ -2,4 +2,6 @@ version: 2
 
 models:
   - name: stg_cv_exchange_rates
+    columns:
+      - name: updated_at
     

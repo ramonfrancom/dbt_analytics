@@ -5,6 +5,7 @@ logs/*
 !logs/script_logs
 !logs/errors
 
+logs/errors/*.err
 logs/script_logs/*.log
 !logs/.gitkeep
 !logs/script_logs/.gitkeep
