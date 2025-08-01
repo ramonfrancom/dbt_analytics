@@ -11,6 +11,7 @@ import requests
 import json
 import time
 
+from lib.operators.control_table_opeartor import ControlTableOperator
 from lib.snowflake_connector import get_snowflake_connection_with_airflow_conn
 
 # from scripts.exchange_rates.extract.pull_exchange_rates_from_api import get_requests_from_ct_snowflake, filter_dates_requested_with_date_already_processed_ct_snowflake
@@ -47,31 +48,6 @@ def notify_email(context):
     }
 )
 def etl_extract_exchange_rate_history():
-
-    @task(task_id="get_pending_requests")
-    def get_pending_requests(snowflake_conn_id):
-        cursor = get_snowflake_connection_with_airflow_conn(snowflake_conn_id)
-        cursor.execute("""
-                            SELECT 
-                                ID,
-                                ADDITIONAL_INFO 
-                            FROM PPCDMDB.ADMIN.CT_REQUEST_INFO 
-                            WHERE 
-                                PROCESS_NAME = 'Historical Exchange Data Reports for USD' 
-                                AND (STATUS = 'Requested' OR STATUS LIKE 'Failed%')
-                    """)
-
-        # columns = [col[0] for col in cursor.description]
-        # data = [dict(zip(columns,[id, json.loads(dates)])) for id,dates in cursor.fetchall()]
-        data = [{
-                    'request_id': id,
-                    'dates': json.loads(dates)['dates'],
-                    'status_by_date': {'Completed': [], 'Failed': []},
-                    'initial_status_by_date': {'Completed': [], 'Failed': [], 'Untracked': []},
-                    'request_status': None
-                } for id,dates in cursor.fetchall()]
-        
-        return data
     
     @task.short_circuit(task_id="check_request")
     def check_requests(pending_requests):
@@ -276,7 +252,10 @@ def etl_extract_exchange_rate_history():
 
 
     snowflake_conn_id = 'snowflake_conn'
-    pending_requests = get_pending_requests(snowflake_conn_id)
+    pending_requests = ControlTableOperator(
+        snowflake_conn_id = snowflake_conn_id,
+        process_name = 'Historical Exchange Data Reports for USD',
+        pulled_status = ['Requested','Failed'])
     processed_request = check_requests(pending_requests)
     enriched_requests = filter_extracted_dates.partial(snowflake_conn_id=snowflake_conn_id).expand(pending_requests=processed_request)
     requests_by_date = explode_requests_by_date(enriched_requests=enriched_requests)
